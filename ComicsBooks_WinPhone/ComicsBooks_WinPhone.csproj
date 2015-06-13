@@ -88,6 +88,7 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="DAL\DesignTweetsDataContextFactory.cs" />
     <Compile Include="DAL\ITweetsDataContext.cs" />
     <Compile Include="DAL\ITweetsDataContextFactory.cs" />
     <Compile Include="DAL\TweetsDataContext.cs" />
@@ -105,6 +106,8 @@
     <Compile Include="Navigation\INavigationService.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CommentsService.cs" />
+    <Compile Include="Services\DesignCommentsService.cs" />
     <Compile Include="Services\DesignTwitterFeedService.cs" />
     <Compile Include="Services\ICommentsService.cs" />
     <Compile Include="Services\ITwitterFeedService.cs" />

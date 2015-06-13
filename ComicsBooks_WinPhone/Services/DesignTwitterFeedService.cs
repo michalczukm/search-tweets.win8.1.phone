@@ -23,5 +23,10 @@ namespace ComicsBooks_WinPhone.Services
 
             return taskCompletionSource.Task;
         }
+
+        public Task<IEnumerable<TweetDto>> GetTweetsFor(IEnumerable<string> tweetsIds)
+        {
+            return null;
+        }
     }
 }

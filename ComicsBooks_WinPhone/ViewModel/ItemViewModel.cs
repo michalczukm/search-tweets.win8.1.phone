@@ -20,8 +20,6 @@ namespace ComicsBooks_WinPhone.ViewModel
             _commentsService = commentsService;
         }
 
-        public string NewCommentText { get; set; }
-        
         public string Text { get { return _tweet.Text; } }
         public Uri SourceUri { get { return _tweet.TweetUri; } }
         public DateTime CreatedAt { get { return _tweet.CreatedAt; } }
@@ -42,7 +40,7 @@ namespace ComicsBooks_WinPhone.ViewModel
                 return _saveTweetCommand
                     ?? (_saveTweetCommand = new RelayCommand(() =>
                     {
-                        _commentsService.SaveCommentForTweet(_tweet.Id, NewCommentText);
+                        _commentsService.SaveCommentForTweet(_tweet.Id, Comment);
                     }));
             }
         }

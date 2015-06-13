@@ -12,22 +12,18 @@ namespace ComicsBooks_WinPhone.DAL
     {
         private bool _isInitialized;
 
-        public TweetsDataContext()
-        {
-            if (!_isInitialized)
-            {
-                throw new Exception("DB not initialized, use `Init` method");
-            }
-        }
-
         public AsyncTableQuery<T> GetQuery<T>() where T : class, new()
         {
+            CanExecute();
+
             var connection = GetConnection();
             return connection.Table<T>();
         }
 
         public async void AddEntity<T>(T item) where T : class
         {
+            CanExecute();
+
             await GetConnection().InsertAsync(item);
         }
 
@@ -36,6 +32,16 @@ namespace ComicsBooks_WinPhone.DAL
             SQLiteAsyncConnection connection = GetConnection();
             await connection.CreateTableAsync<Comment>();
             _isInitialized = true;
+        }
+
+        private bool CanExecute()
+        {
+            if (!_isInitialized)
+            {
+                throw new Exception("DB not initialized, use `Init` method");
+            }
+
+            return true;
         }
 
         private SQLiteAsyncConnection GetConnection()

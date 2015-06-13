@@ -13,14 +13,17 @@ namespace ComicsBooks_WinPhone.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private readonly ITwitterFeedService _twitterFeedService;
+        private readonly ICommentsService _commentsService;
         private readonly INavigationService _navigationService;
         private ObservableCollection<TweetDto> _tweets;
         private RelayCommand<ItemClickEventArgs> _showTweetCommand;
+        private ObservableCollection<CommentWithTweetDto> _comments;
 
-        public MainViewModel(ITwitterFeedService twitterFeedService, INavigationService navigationService)
+        public MainViewModel(ITwitterFeedService twitterFeedService, INavigationService navigationService, ICommentsService commentsService)
         {
             _twitterFeedService = twitterFeedService;
             _navigationService = navigationService;
+            _commentsService = commentsService;
 
             Tweets = new ObservableCollection<TweetDto>();
         }
@@ -29,6 +32,12 @@ namespace ComicsBooks_WinPhone.ViewModel
         {
             get { return _tweets; }
             set { Set(() => Tweets, ref _tweets, value); }
+        }
+
+        public ObservableCollection<CommentWithTweetDto> Comments
+        {
+            get { return _comments; }
+            set { Set(() => Comments, ref _comments, value); }
         }
 
         public RelayCommand<ItemClickEventArgs> ShowTweetCommand
@@ -53,7 +62,9 @@ namespace ComicsBooks_WinPhone.ViewModel
         private async Task Refetch()
         {
             var tweetDtos = await _twitterFeedService.GetTweetsAsync();
+            var comments = await _commentsService.GetAllComments();
             Tweets = new ObservableCollection<TweetDto>(tweetDtos);
+            Comments = new ObservableCollection<CommentWithTweetDto>(comments);
         }
     }
 }

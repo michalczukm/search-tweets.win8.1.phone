@@ -7,5 +7,6 @@ namespace ComicsBooks_WinPhone.Services
     public interface ITwitterFeedService
     {
         Task<IEnumerable<TweetDto>> GetTweetsAsync();
+        Task<IEnumerable<TweetDto>> GetTweetsFor(IEnumerable<string> tweetsIds);
     }
 }

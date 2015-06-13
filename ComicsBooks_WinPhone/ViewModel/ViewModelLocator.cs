@@ -40,21 +40,22 @@ namespace ComicsBooks_WinPhone.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ItemViewModel>();
-
-            SimpleIoc.Default.Register<ITweetsDataContextFactory, TweetsDataContextFactory>();
-            SimpleIoc.Default.Register<ICommentsService, CommentsService>();
         }
 
         private static void RegisterProductionImplementations()
         {
             SimpleIoc.Default.Register<ITwitterFeedService, TwitterFeedService>();
             SimpleIoc.Default.Register<INavigationService>(() => new NavigationService());
+            SimpleIoc.Default.Register<ITweetsDataContextFactory, TweetsDataContextFactory>();
+            SimpleIoc.Default.Register<ICommentsService, CommentsService>();
         }
 
         private static void RegisterDesignImplementations()
         {
             SimpleIoc.Default.Register<ITwitterFeedService, DesignTwitterFeedService>();
             SimpleIoc.Default.Register<INavigationService, DesignNavigationService>();
+            SimpleIoc.Default.Register<ITweetsDataContextFactory, DesignTweetsDataContextFactory>();
+            SimpleIoc.Default.Register<ICommentsService, DesignCommentsService>();
         }
     }
 }
