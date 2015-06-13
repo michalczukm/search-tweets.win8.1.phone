@@ -11,14 +11,15 @@ namespace ComicsBooks_WinPhone.Services
 {
     public class TwitterFeedService : ITwitterFeedService
     {
-        public async Task<IEnumerable<TweetDto>> GetTweetsAsync()
+        public async Task<IEnumerable<TweetDto>> GetTweetsAsync(string query)
         {
             using (var twitterContext = CreateContext())
             {
+                var queryString = String.Format("\"{0}\"", query);
                 Search searchResponse =
                 await
                     twitterContext.Search
-                    .Where(search => search.Type == SearchType.Search && search.Query == "\"LINQ to Twitter\"")
+                    .Where(search => search.Type == SearchType.Search && search.Query == queryString)
                         .SingleOrDefaultAsync();
 
                 if (searchResponse != null && searchResponse.Statuses != null)

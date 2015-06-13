@@ -18,6 +18,7 @@ namespace ComicsBooks_WinPhone.ViewModel
         private ObservableCollection<TweetDto> _tweets;
         private RelayCommand<ItemClickEventArgs> _showTweetCommand;
         private ObservableCollection<CommentWithTweetDto> _comments;
+        private string _twitterQuery;
 
         public MainViewModel(ITwitterFeedService twitterFeedService, INavigationService navigationService, ICommentsService commentsService)
         {
@@ -40,7 +41,17 @@ namespace ComicsBooks_WinPhone.ViewModel
             set { Set(() => Comments, ref _comments, value); }
         }
 
-        public RelayCommand<ItemClickEventArgs> ShowTweetCommand
+        public string TwitterQuery
+        {
+            get { return _twitterQuery; }
+            set
+            {
+                Set(() => TwitterQuery, ref _twitterQuery, value);
+                RefreshList();
+            }
+        }
+
+        public ICommand ShowTweetCommand
         {
             get
             {
@@ -56,13 +67,18 @@ namespace ComicsBooks_WinPhone.ViewModel
 
         public async Task Init()
         {
-            await Refetch();
+            await Refetch("michalczukm");
         }
 
-        private async Task Refetch()
+        private async void RefreshList()
         {
-            var tweetDtos = await _twitterFeedService.GetTweetsAsync();
-            var comments = await _commentsService.GetAllComments();
+            await Refetch(TwitterQuery);
+        }
+
+        private async Task Refetch(string query)
+        {
+            var tweetDtos = await _twitterFeedService.GetTweetsAsync(query);
+            var comments = await _commentsService.GetAllCommentsAsync();
             Tweets = new ObservableCollection<TweetDto>(tweetDtos);
             Comments = new ObservableCollection<CommentWithTweetDto>(comments);
         }

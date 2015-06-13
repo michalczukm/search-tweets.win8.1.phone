@@ -7,6 +7,6 @@ namespace ComicsBooks_WinPhone.Services
     public interface ICommentsService
     {
         Task SaveCommentForTweet(string tweetId, string content);
-        Task<IEnumerable<CommentWithTweetDto>> GetAllComments();
+        Task<IEnumerable<CommentWithTweetDto>> GetAllCommentsAsync();
     }
 }

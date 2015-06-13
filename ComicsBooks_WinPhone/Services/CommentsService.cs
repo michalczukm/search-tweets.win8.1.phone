@@ -18,7 +18,7 @@ namespace ComicsBooks_WinPhone.Services
             _twitterFeedService = twitterFeedService;
         }
 
-        public async Task<IEnumerable<CommentWithTweetDto>> GetAllComments()
+        public async Task<IEnumerable<CommentWithTweetDto>> GetAllCommentsAsync()
         {
             using (var context = await _contextFactory.Create())
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 using ComicsBooks_WinPhone.DataModel;
+using ComicsBooks_WinPhone.Navigation;
 using ComicsBooks_WinPhone.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -10,14 +11,16 @@ namespace ComicsBooks_WinPhone.ViewModel
     public class ItemViewModel : ViewModelBase
     {
         private readonly ICommentsService _commentsService;
+        private readonly INavigationService _navigationService;
         private string _comment;
         private ICommand _saveTweetCommand;
         private TweetDto _tweet;
         private ICommand _clearTweetCommand;
 
-        public ItemViewModel(ICommentsService commentsService)
+        public ItemViewModel(ICommentsService commentsService, INavigationService navigationService)
         {
             _commentsService = commentsService;
+            _navigationService = navigationService;
         }
 
         public string Text { get { return _tweet.Text; } }
@@ -38,9 +41,10 @@ namespace ComicsBooks_WinPhone.ViewModel
             get
             {
                 return _saveTweetCommand
-                    ?? (_saveTweetCommand = new RelayCommand(() =>
+                    ?? (_saveTweetCommand = new RelayCommand(async () =>
                     {
-                        _commentsService.SaveCommentForTweet(_tweet.Id, Comment);
+                        await _commentsService.SaveCommentForTweet(_tweet.Id, Comment);
+                        _navigationService.GoBack();
                     }));
             }
         }

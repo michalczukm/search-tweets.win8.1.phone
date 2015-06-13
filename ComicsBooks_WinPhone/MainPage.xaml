@@ -78,22 +78,27 @@
         <Hub x:Name="Hub" x:Uid="Hub" Header="Tweets and comments" Background="{ThemeResource HubBackgroundImageBrush}">
             <HubSection x:Uid="hub-1" Header="Tweets" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <GridView Grid.Row="1" Background="{ThemeResource HubBackgroundImageBrush}"
-                    IsItemClickEnabled="True"
-                    ItemsSource="{Binding Tweets}"
-                    ItemTemplate="{StaticResource TwitItemTemplate}">
-                            <i:Interaction.Behaviors>
-                                <core:EventTriggerBehavior EventName="ItemClick">
-                                    <core:InvokeCommandAction Command="{Binding ShowTweetCommand}" />
-                                </core:EventTriggerBehavior>
-                            </i:Interaction.Behaviors>
-                        </GridView>
-                    </Grid>
+                    <ScrollViewer>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBox Text="{Binding TwitterQuery, Mode=TwoWay}"></TextBox>
+                            <ListView Grid.Row="1"
+                            IsItemClickEnabled="True"
+                            ItemsSource="{Binding Tweets}"
+                            ContinuumNavigationTransitionInfo.ExitElementContainer="True"     
+                            ItemTemplate="{StaticResource TwitItemTemplate}">
+                                <i:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="ItemClick">
+                                        <core:InvokeCommandAction Command="{Binding ShowTweetCommand}" />
+                                    </core:EventTriggerBehavior>
+                                </i:Interaction.Behaviors>
+                            </ListView>
+                        </Grid>
+                    </ScrollViewer>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="hub-2" Header="Comments" HeaderTemplate="{ThemeResource HubSectionHeaderTemplate}">

@@ -19,7 +19,7 @@ namespace ComicsBooks_WinPhone.Services
             return null;
         }
 
-        public Task<IEnumerable<CommentWithTweetDto>> GetAllComments()
+        public Task<IEnumerable<CommentWithTweetDto>> GetAllCommentsAsync()
         {
             var seeds = _fixture.CreateMany<CommentWithTweetDto>(10);
 

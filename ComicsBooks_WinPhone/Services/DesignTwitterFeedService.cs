@@ -14,7 +14,7 @@ namespace ComicsBooks_WinPhone.Services
             _fixture = new Fixture();
         }
 
-        public Task<IEnumerable<TweetDto>> GetTweetsAsync()
+        public Task<IEnumerable<TweetDto>> GetTweetsAsync(string query)
         {
             var seeds = _fixture.CreateMany<TweetDto>(10);
 
