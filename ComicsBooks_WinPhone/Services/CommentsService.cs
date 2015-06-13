@@ -1,21 +1,28 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Windows.Web.Http;
 using ComicsBooks_WinPhone.DataModel;
 using ComicsBooks_WinPhone.DAL;
+using HttpResponseMessage = System.Net.Http.HttpResponseMessage;
+using UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding;
 
 namespace ComicsBooks_WinPhone.Services
 {
     public class CommentsService : ICommentsService
     {
+        private readonly ICommentsBackupService _backupService;
         private readonly ITweetsDataContextFactory _contextFactory;
         private readonly ITwitterFeedService _twitterFeedService;
 
-        public CommentsService(ITweetsDataContextFactory contextFactory, ITwitterFeedService twitterFeedService)
+        public CommentsService(ITweetsDataContextFactory contextFactory, ITwitterFeedService twitterFeedService, ICommentsBackupService backupService)
         {
             _contextFactory = contextFactory;
             _twitterFeedService = twitterFeedService;
+            _backupService = backupService;
         }
 
         public async Task<IEnumerable<CommentWithTweetDto>> GetAllCommentsAsync()
@@ -53,6 +60,8 @@ namespace ComicsBooks_WinPhone.Services
                 };
 
                 context.AddEntity(comment);
+
+                await _backupService.Persist(comment);
             }
         }
     }

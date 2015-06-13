@@ -40,6 +40,7 @@ namespace ComicsBooks_WinPhone.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ItemViewModel>();
+            SimpleIoc.Default.Register<ICommentsBackupService, CommentsBackupService>();
         }
 
         private static void RegisterProductionImplementations()

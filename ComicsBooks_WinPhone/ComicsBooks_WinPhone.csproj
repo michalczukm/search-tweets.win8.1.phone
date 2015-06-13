@@ -106,9 +106,11 @@
     <Compile Include="Navigation\INavigationService.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CommentsBackupService.cs" />
     <Compile Include="Services\CommentsService.cs" />
     <Compile Include="Services\DesignCommentsService.cs" />
     <Compile Include="Services\DesignTwitterFeedService.cs" />
+    <Compile Include="Services\ICommentsBackupService.cs" />
     <Compile Include="Services\ICommentsService.cs" />
     <Compile Include="Services\ITwitterFeedService.cs" />
     <Compile Include="Services\TwitterFeedService.cs" />
@@ -180,6 +182,10 @@
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ploeh.AutoFixture, Version=2.13.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
