@@ -1,15 +1,16 @@
 ﻿<Page x:Name="pageRoot"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="ComicsBooks_WinPhone.ItemPage"    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ComicsBooks_WinPhone"
-    xmlns:data="using:ComicsBooks_WinPhone.Data"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding DefaultViewModel.Item, RelativeSource={RelativeSource Self}}"
-    d:DataContext="{Binding Groups[0].Items[0], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    DataContext="{Binding Item, Source={StaticResource Locator}}"
+    d:DataContext="{Binding Item, Source={StaticResource Locator}}"
+    Background="{ThemeResource HubBackgroundImageBrush}">
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -34,15 +35,34 @@
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <TextBlock x:Uid="Header" Text="application name" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0" />
-            <TextBlock Text="{Binding Title}" Style="{ThemeResource HeaderTextBlockStyle}" Margin="0,-6.5,0,26.5" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="0,9.5,0,0" Grid.Column="0" HorizontalAlignment="Left">
+                    <Image Source="{Binding UserProfileImageUri}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}" Height="79" Width="79"/>
+                </Border>
+                <StackPanel Grid.Column="1" Margin="14.5,0,0,0">
+                    <TextBlock Text="{Binding UserName}" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+                    <TextBlock Text="{Binding Text}" Style="{ThemeResource ListViewItemContentTextBlockStyle}" Foreground="{ThemeResource PhoneMidBrush}" />
+                    <TextBlock Text="{Binding CreatedAt}" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" />
+                </StackPanel>
+            </Grid>
         </StackPanel>
 
-        <!-- 
-            TODO: Content should be placed within the following grid 
-                  to show details for the current item
-        -->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-
+            <StackPanel>
+                <TextBlock Style="{ThemeResource ControlHeaderTextBlockStyle}">Add comment</TextBlock>
+                <TextBox BorderThickness="{ThemeResource RichEditBoxTextThemeMargin}" Margin="0, 10"
+                      MinHeight="100"
+                     Text="{Binding Comment, Mode=TwoWay}"></TextBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Button Background="DarkRed" HorizontalAlignment="Left" Content="Clear" Command="{Binding ClearCommentCommand}" />
+                    <Button Background="Green" HorizontalAlignment="Right" Content="Save" Command="{Binding SaveCommentCommand}"></Button>
+                </StackPanel>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
