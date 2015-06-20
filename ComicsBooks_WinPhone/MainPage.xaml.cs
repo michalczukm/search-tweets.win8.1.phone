@@ -1,5 +1,4 @@
-﻿using System;
-using Windows.Graphics.Display;
+﻿using Windows.Graphics.Display;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ComicsBooks_WinPhone.Common;

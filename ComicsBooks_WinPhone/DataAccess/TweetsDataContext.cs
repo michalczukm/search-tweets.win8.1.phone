@@ -5,7 +5,7 @@ using Windows.Storage;
 using ComicsBooks_WinPhone.DataModel;
 using SQLite;
 
-namespace ComicsBooks_WinPhone.DAL
+namespace ComicsBooks_WinPhone.DataAccess
 {
     public class TweetsDataContext : ITweetsDataContext
     {

@@ -1,4 +1,4 @@
-﻿using ComicsBooks_WinPhone.DAL;
+﻿using ComicsBooks_WinPhone.DataAccess;
 using ComicsBooks_WinPhone.Navigation;
 using ComicsBooks_WinPhone.Services;
 using GalaSoft.MvvmLight;
@@ -40,7 +40,6 @@ namespace ComicsBooks_WinPhone.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<ItemViewModel>();
-            SimpleIoc.Default.Register<ICommentsBackupService, CommentsBackupService>();
         }
 
         private static void RegisterProductionImplementations()

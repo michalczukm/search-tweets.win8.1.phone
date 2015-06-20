@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using SQLite;
 
-namespace ComicsBooks_WinPhone.DAL
+namespace ComicsBooks_WinPhone.DataAccess
 {
     public interface ITweetsDataContext : IDisposable
     {

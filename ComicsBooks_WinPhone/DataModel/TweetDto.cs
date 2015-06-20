@@ -11,10 +11,4 @@ namespace ComicsBooks_WinPhone.DataModel
         public string UserName { get; set; }
         public Uri UserProfileImageUri { get; set; }
     }
-
-    public class CommentWithTweetDto
-    {
-        public TweetDto Tweet { get; set; }
-        public Comment Comment { get; set; }
-    }
 }
