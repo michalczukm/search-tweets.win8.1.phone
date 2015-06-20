@@ -1,14 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using Windows.Web.Http;
 using ComicsBooks_WinPhone.DataModel;
 using ComicsBooks_WinPhone.DAL;
-using HttpResponseMessage = System.Net.Http.HttpResponseMessage;
-using UnicodeEncoding = Windows.Storage.Streams.UnicodeEncoding;
 
 namespace ComicsBooks_WinPhone.Services
 {

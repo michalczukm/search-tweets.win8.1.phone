@@ -11,6 +11,13 @@ namespace ComicsBooks_WinPhone.Services
 {
     public class TwitterFeedService : ITwitterFeedService
     {
+        private readonly ITwitterCredentialStoreProvider _credentialStoreProvider;
+
+        public TwitterFeedService(ITwitterCredentialStoreProvider credentialStoreProvider)
+        {
+            _credentialStoreProvider = credentialStoreProvider;
+        }
+
         public async Task<IEnumerable<TweetDto>> GetTweetsAsync(string query)
         {
             using (var twitterContext = CreateContext())
@@ -74,15 +81,11 @@ namespace ComicsBooks_WinPhone.Services
 
         private TwitterContext CreateContext()
         {
+            var credentialStore = _credentialStoreProvider.GetMemoryCredentialStore();
+
             var auth = new SingleUserAuthorizer
             {
-                CredentialStore = new SingleUserInMemoryCredentialStore
-                {
-                    ConsumerKey = "***REMOVED***",
-                    ConsumerSecret = "***REMOVED***",
-                    AccessToken = "***REMOVED***",
-                    AccessTokenSecret = "***REMOVED***"
-                }
+                CredentialStore = credentialStore
             };
 
             return new TwitterContext(auth);

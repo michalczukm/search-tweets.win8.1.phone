@@ -45,6 +45,7 @@ namespace ComicsBooks_WinPhone.ViewModel
 
         private static void RegisterProductionImplementations()
         {
+            SimpleIoc.Default.Register<ITwitterCredentialStoreProvider, TwitterCredentialStoreProvider>();
             SimpleIoc.Default.Register<ITwitterFeedService, TwitterFeedService>();
             SimpleIoc.Default.Register<INavigationService>(() => new NavigationService());
             SimpleIoc.Default.Register<ITweetsDataContextFactory, TweetsDataContextFactory>();
