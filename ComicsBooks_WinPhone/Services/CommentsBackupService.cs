@@ -1,8 +1,10 @@
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ComicsBooks_WinPhone.DataModel;
 using Newtonsoft.Json;
+using PortableRest;
 
 namespace ComicsBooks_WinPhone.Services
 {
@@ -17,13 +19,12 @@ namespace ComicsBooks_WinPhone.Services
 
         public async Task Persist(Comment comment)
         {
-            var dataString = JsonConvert.SerializeObject(comment);
+            var client = new RestClient{ BaseUrl = _uri };
 
-            using (var client = new HttpClient())
-            {
-                var stringContent = new StringContent(dataString, Encoding.UTF8, "application/json");
-                await client.PostAsync(_uri, stringContent);
-            }
+            var request = new RestRequest("/", HttpMethod.Post, ContentTypes.Json);
+            request.AddParameter("item", JsonConvert.SerializeObject(comment));
+
+            await client.ExecuteAsync<Comment>(request, CancellationToken.None);
         }
     }
 }
