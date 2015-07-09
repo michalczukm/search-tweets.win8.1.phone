@@ -1,11 +1,11 @@
-﻿using ComicsBooks_WinPhone.DataAccess;
-using ComicsBooks_WinPhone.Navigation;
-using ComicsBooks_WinPhone.Services;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using ShowTweets.DataAccess;
+using ShowTweets.Navigation;
+using ShowTweets.Services;
 
-namespace ComicsBooks_WinPhone.ViewModel
+namespace ShowTweets.ViewModel
 {
     public class ViewModelLocator
     {

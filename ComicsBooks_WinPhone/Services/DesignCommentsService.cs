@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ComicsBooks_WinPhone.DataModel;
 using Ploeh.AutoFixture;
+using ShowTweets.DataModel;
 
-namespace ComicsBooks_WinPhone.Services
+namespace ShowTweets.Services
 {
     public class DesignCommentsService : ICommentsService
     {

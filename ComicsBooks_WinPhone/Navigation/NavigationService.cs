@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace ComicsBooks_WinPhone.Navigation
+namespace ShowTweets.Navigation
 {
     public class NavigationService : INavigationService
     {

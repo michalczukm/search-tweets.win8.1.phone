@@ -1,10 +1,10 @@
 ﻿using Windows.Graphics.Display;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using ComicsBooks_WinPhone.Common;
-using ComicsBooks_WinPhone.ViewModel;
+using ShowTweets.Common;
+using ShowTweets.ViewModel;
 
-namespace ComicsBooks_WinPhone
+namespace ShowTweets
 {
     public sealed partial class MainPage : Page
     {

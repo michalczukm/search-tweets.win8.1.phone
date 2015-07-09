@@ -7,8 +7,8 @@
     <ProjectGuid>{65ED4B79-9F6D-4B9E-9EF8-8392C9CCCA60}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ComicsBooks_WinPhone</RootNamespace>
-    <AssemblyName>ComicsBooks_WinPhone</AssemblyName>
+    <RootNamespace>ShowTweets</RootNamespace>
+    <AssemblyName>ShowTweets</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>

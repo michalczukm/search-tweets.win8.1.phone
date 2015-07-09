@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ComicsBooks_WinPhone.DataModel
+namespace ShowTweets.DataModel
 {
     public class TweetDto
     {

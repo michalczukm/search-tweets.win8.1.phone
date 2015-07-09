@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ComicsBooks_WinPhone.Navigation
+namespace ShowTweets.Navigation
 {
     public interface INavigationService
     {

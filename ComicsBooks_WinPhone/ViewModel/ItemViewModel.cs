@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows.Input;
-using ComicsBooks_WinPhone.DataModel;
-using ComicsBooks_WinPhone.Navigation;
-using ComicsBooks_WinPhone.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using ShowTweets.DataModel;
+using ShowTweets.Navigation;
+using ShowTweets.Services;
 
-namespace ComicsBooks_WinPhone.ViewModel
+namespace ShowTweets.ViewModel
 {
     public class ItemViewModel : ViewModelBase
     {

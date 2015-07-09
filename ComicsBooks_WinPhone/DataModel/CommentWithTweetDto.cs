@@ -1,4 +1,4 @@
-﻿namespace ComicsBooks_WinPhone.DataModel
+﻿namespace ShowTweets.DataModel
 {
     public class CommentWithTweetDto
     {

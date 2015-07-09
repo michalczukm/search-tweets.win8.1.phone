@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ComicsBooks_WinPhone.DataModel;
+using ShowTweets.DataModel;
 
-namespace ComicsBooks_WinPhone.Services
+namespace ShowTweets.Services
 {
     public interface ICommentsService
     {

@@ -2,10 +2,10 @@
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
-using ComicsBooks_WinPhone.DataModel;
+using ShowTweets.DataModel;
 using SQLite;
 
-namespace ComicsBooks_WinPhone.DataAccess
+namespace ShowTweets.DataAccess
 {
     public class TweetsDataContext : ITweetsDataContext
     {

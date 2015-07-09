@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using ComicsBooks_WinPhone.DataModel;
-using ComicsBooks_WinPhone.Extensions;
 using LinqToTwitter;
+using ShowTweets.DataModel;
+using ShowTweets.Extensions;
 
-namespace ComicsBooks_WinPhone.Services
+namespace ShowTweets.Services
 {
     public class TwitterFeedService : ITwitterFeedService
     {

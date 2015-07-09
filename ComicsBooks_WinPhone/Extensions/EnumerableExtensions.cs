@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ComicsBooks_WinPhone.Extensions
+namespace ShowTweets.Extensions
 {
     public static class EnumerableExtensions
     {

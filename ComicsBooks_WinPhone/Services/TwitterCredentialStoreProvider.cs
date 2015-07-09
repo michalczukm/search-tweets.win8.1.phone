@@ -1,6 +1,6 @@
 using LinqToTwitter;
 
-namespace ComicsBooks_WinPhone.Services
+namespace ShowTweets.Services
 {
     public class TwitterCredentialStoreProvider : ITwitterCredentialStoreProvider
     {

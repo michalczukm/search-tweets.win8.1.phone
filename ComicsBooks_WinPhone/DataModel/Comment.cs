@@ -1,7 +1,7 @@
 ﻿using System;
 using SQLite;
 
-namespace ComicsBooks_WinPhone.DataModel
+namespace ShowTweets.DataModel
 {
     public class Comment
     {

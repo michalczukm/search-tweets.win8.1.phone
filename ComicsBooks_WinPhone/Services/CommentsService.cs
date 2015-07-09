@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ComicsBooks_WinPhone.DataAccess;
-using ComicsBooks_WinPhone.DataModel;
+using ShowTweets.DataAccess;
+using ShowTweets.DataModel;
 
-namespace ComicsBooks_WinPhone.Services
+namespace ShowTweets.Services
 {
     public class CommentsService : ICommentsService
     {

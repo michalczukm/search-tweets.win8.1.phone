@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ComicsBooks_WinPhone.DataAccess
+namespace ShowTweets.DataAccess
 {
     public class TweetsDataContextFactory : ITweetsDataContextFactory
     {
